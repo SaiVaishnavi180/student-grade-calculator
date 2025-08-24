@@ -1,0 +1,13 @@
+# Contributing to Student Grade Calculator
+
+Thank you for your interest in contributing! Your help is greatly appreciated.
+
+## How to Contribute
+
+1. **Fork the Repository**
+   - Click the “Fork” button at the top-right of the repository page to create your own copy.
+
+2. **Clone Your Fork**
+   ```bash
+   git clone https://github.com/<your-username>/student-grade-calculator.git
+   cd student-grade-calculator
