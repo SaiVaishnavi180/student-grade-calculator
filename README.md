@@ -3,7 +3,7 @@
 
 A small collection of beginner-friendly Bash scripts demonstrating basic CLI utilities and GitHub collaboration practices. This repository includes a Student Grade Calculator script and a Simple Interest Calculator script (required by the course).
 
-
+It is easy to calculate the student marks and their average and grade
 ## Files
 
 
