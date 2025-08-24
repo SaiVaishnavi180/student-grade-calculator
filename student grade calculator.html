@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Grade Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 5px;
+      margin: 5px;
+      width: 50px;
+    }
+    button {
+      padding: 5px 10px;
+      margin: 10px 0;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Grade Calculator</h1>
+  <p>Enter marks for each subject (0–100):</p>
+  <div id="marks-inputs">
+    <input type="number" placeholder="Subject 1" min="0" max="100">
+    <input type="number" placeholder="Subject 2" min="0" max="100">
+    <input type="number" placeholder="Subject 3" min="0" max="100">
+    <input type="number" placeholder="Subject 4" min="0" max="100">
+    <input type="number" placeholder="Subject 5" min="0" max="100">
+  </div>
+  <br>
+  <button onclick="calculateGrade()">Calculate Grade</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculateGrade() {
+      const inputs = document.querySelectorAll("#marks-inputs input");
+      let total = 0;
+      let count = 0;
+      let valid = true;
+
+      inputs.forEach(input => {
+        const mark = parseFloat(input.value);
+        if (isNaN(mark) || mark < 0 || mark > 100) {
+          valid = false;
+        } else {
+          total += mark;
+          count++;
+        }
+      });
+
+      if (!valid || count === 0) {
+        document.getElementById("result").innerText = "Please enter valid marks between 0 and 100 for all subjects.";
+        return;
+      }
+
+      const average = total / count;
+      let grade = '';
+
+      if (average >= 90) grade = 'A';
+      else if (average >= 80) grade = 'B';
+      else if (average >= 70) grade = 'C';
+      else if (average >= 60) grade = 'D';
+      else grade = 'F';
+
+      document.getElementById("result").innerHTML = `
+        Total: ${total} <br>
+        Average: ${average.toFixed(2)} <br>
+        Grade: ${grade}
+      `;
+    }
+  </script>
+</body>
+</html>
